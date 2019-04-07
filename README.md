@@ -1,4 +1,5 @@
-# til-amp
+# TIL AMP
+
 Today I learned about AMP
 
 ## Author
