@@ -5,6 +5,7 @@ Today I learned about AMP
 ## Topics
 
 + [hello-amp](https://github.com/hahnah/til-amp/tree/master/hello-amp) : My first AMP project along with official tutorial.
++ [amp-story](https://github.com/hahnah/til-amp/tree/master/amp-story) : AMP Story tutorial
 
 ## Development
 
