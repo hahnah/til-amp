@@ -11,6 +11,15 @@ See [official tutorial](https://amp.dev/ja/documentation/guides-and-tutorials/st
   + Write like `<script async custom-element="amp-video" ...` in `<head>` section to use
 + experimental
 
+#### Exended AMP Components used in this TIL
+
++ amp-ad
++ amp-youtube
++ amp-fit-text
++ amp-carousel
++ amp-analytics
++ amp-sidebar
+
 ## amp-ad
 
 An extended component.
