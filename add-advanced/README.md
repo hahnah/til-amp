@@ -18,7 +18,9 @@ See [official tutorial](https://amp.dev/ja/documentation/guides-and-tutorials/st
 + amp-fit-text
 + amp-carousel
 + amp-analytics
++ link back home
 + amp-sidebar
++ adding fonts
 
 ## amp-ad
 
