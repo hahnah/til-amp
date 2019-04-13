@@ -97,6 +97,90 @@ See [https://amp.dev/ja/documentation/examples/components/amp-fit-text/index.htm
 
 ## amp-carousel
 
+I don't know why the tutorial doesn't work well.
+
+### Required script
+
+```html
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+```
+
+### Usage
+
+#### Poor version
+
+```html
+<amp-carousel layout="fixed-height" height="168" type="carousel" >
+  <amp-img src="mountains-1.jpg" width="300" height="168"></amp-img>
+  <amp-img src="mountains-2.jpg" width="300" height="168"></amp-img>
+  <amp-img src="mountains-3.jpg" width="300" height="168"></amp-img>
+</amp-carousel>
+```
+
+#### Responsive version
+
+To make it responsive: 
+
++ `type="slides"` in `amp-carousel`
++ `layout="responsive"` in `amp-carousel` and sub `amp-img`
+  + **NOTE** `"fixed-height"` layout requires only `height`, but `"responsive"` layout does both of `width` and `height`
+
+```html
+<amp-carousel layout="responsive" width="300" height="168" type="slides" >
+  <amp-img src="mountains-1.jpg" layout="responsive" width="300" height="168"></amp-img>
+  <amp-img src="mountains-2.jpg" layout="responsive" width="300" height="168"></amp-img>
+  <amp-img src="mountains-3.jpg" layout="responsive" width="300" height="168"></amp-img>
+</amp-carousel>
+```
+
+#### Loop & Autoplay
+
++ **Loop**: Just write `loop` field
++ **Autoplay**: Write `autoplay` & `delay="2000"`, which means autoplay with intevel of 2000 msec
+
+```html
+<amp-carousel layout="responsive" width="300" height="168" type="slides" loop delay="2000" >
+  <amp-img src="mountains-1.jpg" layout="responsive" width="300" height="168"></amp-img>
+  <amp-img src="mountains-2.jpg" layout="responsive" width="300" height="168"></amp-img>
+  <amp-img src="mountains-3.jpg" layout="responsive" width="300" height="168"></amp-img>
+</amp-carousel>
+```
+
+#### Mixed Caroucel Content
+
+Mix of `amp-img`, `amp-ad`, and `amp-fit-text`:
+
+```html
+<amp-carousel layout="fixed-height" height="250" type="carousel" >
+  <amp-img src="blocky-mountains-1.jpg" width="300" height="250"></amp-img>
+
+  <amp-ad width="300" height="250"
+      type="doubleclick"
+      data-slot="/35096353/amptesting/image/static">
+    <div placeholder>This ad is still loading.</div>
+  </amp-ad>
+
+  <amp-fit-text width="300" height="250" layout="fixed">
+    Big, bold article quote goes here.
+  </amp-fit-text>
+</amp-carousel>
+```
+
+**NOTE** Add this style to `<style amp-custom>` to ensure the `amp-fit-text` and `amp-carousel` components work together safely:
+
+```css
+amp-fit-text {
+    white-space: normal;
+}
+```
+
+**NOTE** In above code `amp-ad` includes a compnent with `placeholer` attribute.  
+There is a difference between `placeholder` and `fallback`.
+
++ `placeholder`: Placeholder elements appear in place of the parent element, **while it is loading**.
++ `fallback`: Fallback elements appear **when the parent element fails to load**, i.e. if there was no ad available.
+
+
 ## amp-analytics
 
 ## amp-sidebar
