@@ -306,3 +306,26 @@ Sidebar menu appears when the hamburger button is clicked.
   padding-left: 5px;
 }
 ```
+
+## Adding Fonts
+
+An example to use `Raleway` font.
+
+### Required link
+
+Add an css link to `header`:
+
+```html
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+```
+
+Update custom style of `body`:
+
+```css
+body {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+```
