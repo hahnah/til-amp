@@ -180,7 +180,129 @@ There is a difference between `placeholder` and `fallback`.
 + `placeholder`: Placeholder elements appear in place of the parent element, **while it is loading**.
 + `fallback`: Fallback elements appear **when the parent element fails to load**, i.e. if there was no ad available.
 
-
 ## amp-analytics
 
+### Required script
+
+```html
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+```
+
+### Usage
+
+Write at the end of the `body`:
+
+```html
+<amp-analytics type="googleanalytics">
+<script type="application/json">
+{
+  "vars": {
+    "account": "UA-YYYY-Y"
+  },
+  "triggers": {
+    "default pageview": {
+      "on": "visible",
+      "request": "pageview",
+      "vars": {
+        "title": "Name of the Article"
+      }
+    }
+  }
+}
+</script>
+</amp-analytics>
+```
+
+**NOTE** `amp-pixel` is also available. It's seems simpler than `amp-analytics`.
+
+
+## Link back home
+
+Place a link back home in `header`:
+
+```html
+<header class="headerbar">
+  <a href="homepage.html">
+    <amp-img class="home-button" src="icons/home.png" width="36" height="36"></amp-img>
+  </a>
+ <div class="site-name">News Site</div>
+</header>
+```
+
+```css inline css example
+.home-button {
+  margin-top: 8px;
+}
+.headerbar {
+  height: 50px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.site-name {
+  flex: 1;
+  margin-left: -36px;
+}
+article {
+  margin-top: 50px;
+}
+```
+
 ## amp-sidebar
+
+Implemnt a navigation menu using `amp-sidebar`.
+
+### Required script
+
+```html
+<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+```
+
+### Usage
+
+Place a hamburger button:
+
+```html
+<header class="headerbar">
+  <div role="button" on="tap:sidebar1.toggle" tabindex="0" class="hamburger">☰</div>
+  <div class="site-name">News Site</div>
+</header>
+```
+
+Place `amp-sidebar` just after the `</header>` in `body` tag.
+Sidebar menu appears when the hamburger button is clicked.
+
+```html
+<amp-sidebar id="sidebar1" layout="nodisplay" side="left">
+  <div role="button" aria-label="close sidebar" on="tap:sidebar1.toggle" tabindex="0" class="close-sidebar">✕</div>
+  <ul class="sidebar">
+    <li><a href="#">Example 1</a></li>
+    <li><a href="#">Example 2</a></li>
+    <li><a href="#">Example 3</a></li>
+  </ul>
+</amp-sidebar>
+```
+
+```css inline css example
+.hamburger {
+  padding-left: 10px;
+}
+.sidebar {
+  padding: 10px;
+  margin: 0;
+}
+.sidebar > li {
+  list-style: none;
+  margin-bottom:10px;
+}
+.sidebar a {
+  text-decoration: none;
+}
+.close-sidebar {
+  font-size: 1.5em;
+  padding-left: 5px;
+}
+```
